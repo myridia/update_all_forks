@@ -15,7 +15,7 @@ permissions:
   packages: none
 jobs:
   build:
-    if: github.repository_owner == 'myridia'
+    if: github.repository_owner == 'myridiax'
     runs-on: ubuntu-22.04  
     steps:
       - name: Checkout repository
