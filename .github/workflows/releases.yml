@@ -27,7 +27,7 @@ jobs:
           image: engineervix/pyinstaller-linux
           options: -v ${{ github.workspace }}:/src  
           shell: bash
-          run: ls -all
+          run: whereis pyinstaller
             
 
 
