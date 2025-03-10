@@ -39,7 +39,7 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: 'dist/uaf_mac'
+          file: 'dist/uaf_macos'
           tag: ${{ github.ref }}
           overwrite: true
           file_glob: true   
