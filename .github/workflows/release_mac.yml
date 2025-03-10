@@ -33,6 +33,7 @@ jobs:
           pip install pip --upgrade
           pip install -r requirements.txt 
           ./build.sh    
+          ls dist/
 
       - name: Upload Macos Intel Binary to release
         uses: svenstaro/upload-release-action@v2
