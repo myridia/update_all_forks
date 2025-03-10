@@ -1,4 +1,4 @@
-# update-all-git-forks
+# update_all_forks
 Update all my Github Forks via a Python Script
 
 ## Install Git Source
