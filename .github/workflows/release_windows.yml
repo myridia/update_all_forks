@@ -32,9 +32,9 @@ jobs:
           ./env/Scripts/Activate.bat
           pip install pip --upgrade
           pip install -r requirements.txt 
-          pyinstaller  main.py --onefile --path env/lib/site-packages --name=update_all_forks_windows.exe 
+          ./build.sh
+          ls dist/
     
-
       - name: Upload release
         uses: svenstaro/upload-release-action@v2
         with:
