@@ -21,13 +21,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         
-      - name: Run the build process with Docker
-        uses: addnab/docker-run-action@v3
+      - name: Package Application
+        uses: JackMcKew/pyinstaller-action-linux@main
         with:
-          image: engineervix/pyinstaller-linux
-          options: -v ${{ github.workspace }}:/src  
-          shell: bash
-          run: whereis pyinstaller
+          path: src
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: name-of-artifact
+          path: src/dist/linux
             
 
 
