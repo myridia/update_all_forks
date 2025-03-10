@@ -22,4 +22,5 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
           image: engineervix/pyinstaller-linux
+          options: -v ${{ github.workspace }}:/src
      
