@@ -18,11 +18,6 @@ jobs:
     if: github.repository_owner == 'myridia'
     runs-on: ubuntu-22.04  
     steps:
-      - name: install dependencies
-        run: |
-         sudo apt-get install gcc-arm-linux-gnueabihf gcc-mingw-w64 git wget libgtk-4-dev make -y
-         
-
       - name: Run the build process with Docker
         uses: addnab/docker-run-action@v3
         with:
