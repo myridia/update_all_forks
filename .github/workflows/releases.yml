@@ -13,21 +13,24 @@ permissions:
   pull-requests: write 
   issues: read
   packages: none
-
 jobs:
-  # Single deploy job since we're just deploying
   build:
     if: github.repository_owner == 'myridia'
     runs-on: ubuntu-22.04  
-      steps:
-        - name: Check out the repo
-          uses: actions/checkout@v2
-        - name: Run the build process with Docker
-          uses: addnab/docker-run-action@v3
-          with:
-              image: aschmelyun/cleaver:latest
-              options: -v ${{ github.workspace }}:/var/www
-              run: |
-                  composer install
-                  npm install
-                  npm run production
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Package Application
+        uses: JackMcKew/pyinstaller-action-linux@main
+        with:
+          path: src
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: name-of-artifact
+          path: src/dist/linux
+            
+
+
+     
