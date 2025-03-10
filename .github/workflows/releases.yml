@@ -25,7 +25,8 @@ jobs:
           python --version 
           python -m venv env 
           source env/bin/activate
-          python install pip --upgrade
+          pip install pip --upgrade
+          pip install -r requerements.txt
     
 
           
