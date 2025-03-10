@@ -22,5 +22,13 @@ jobs:
         run: |
          sudo apt-get install gcc-arm-linux-gnueabihf gcc-mingw-w64 git wget libgtk-4-dev make -y
          
-      - name: Checkout repository
-        uses: actions/checkout@v4
+
+      - name: Run the build process with Docker
+        uses: addnab/docker-run-action@v3
+        with:
+          image: aschmelyun/cleaver:latest
+            options: -v ${{ github.workspace }}:/var/www
+            run: |
+              composer install
+              npm install
+              npm run production
