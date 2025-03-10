@@ -23,4 +23,7 @@ jobs:
         with:
           image: engineervix/pyinstaller-linux
           options: -v ${{ github.workspace }}:/src
+          run: | 
+            "pyinstaller -F main.py"
+
      
