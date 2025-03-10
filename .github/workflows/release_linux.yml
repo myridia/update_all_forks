@@ -27,7 +27,7 @@ jobs:
           source env/bin/activate
           pip install pip --upgrade
           pip install -r requirements.txt
-          ./make_linux_binary.sh
+          ./build.sh
           
       - name: upload release 
         uses: svenstaro/upload-release-action@v2
