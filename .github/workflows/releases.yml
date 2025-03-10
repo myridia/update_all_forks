@@ -20,16 +20,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Load Env
+        run: |
+          python --version   
         
-      - name: Package Application
-        uses: JackMcKew/pyinstaller-action-linux@main
-        with:
-          path: src
-
-      - uses: actions/upload-artifact@v2
-        with:
-          name: name-of-artifact
-          path: src/dist/linux
+  
             
 
 
