@@ -32,18 +32,18 @@ jobs:
           ./env/Scripts/Activate.bat
           pip install pip --upgrade
           pip install -r requirements.txt 
-          ./build.sh
-          dir
+          pyinstaller main.py --onefile --path env/lib/site-packages --name=uaf_win64.exe
+
           
     
-    #  - name: Upload release
-    #    uses: svenstaro/upload-release-action@v2
-    #    with:
-    #      repo_token: ${{ secrets.GITHUB_TOKEN }}
-    #      file: 'dist/update_all_forks_windows.exe'
-    #      tag: ${{ github.ref }}
-    #      overwrite: true
-    #      file_glob: true   
+      - name: Upload release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: 'dist/uaf_win64.exe'
+          tag: ${{ github.ref }}
+          overwrite: true
+          file_glob: true   
         
     
 
