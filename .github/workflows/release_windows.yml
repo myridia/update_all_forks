@@ -24,8 +24,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
         
-      - name: List Python
-        run: python --version 
 
       - name: build windows
         run: |
@@ -37,7 +35,7 @@ jobs:
           pyinstaller  main.py --onefile --path env/lib/site-packages --name=update_all_forks_windows.exe 
     
 
-      - name: Upload Macos Intel Binary to release
+      - name: Upload release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
