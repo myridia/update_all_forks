@@ -24,8 +24,27 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
         
-      - name: Build
+      - name: List Python
         run: python --version 
+
+      - name: build windows
+        run: |
+          python --version
+          python -m venv env 
+          source env/bin/activate
+          pip install pip --upgrade
+          pip install -r requirements.txt 
+          pyinstaller  main.py --onefile --path env/lib/site-packages --name=update_all_forks_windows.exe 
+    
+
+      - name: Upload Macos Intel Binary to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: 'dist/update_all_forks_windows.exe'
+          tag: ${{ github.ref }}
+          overwrite: true
+          file_glob: true   
         
     
 
