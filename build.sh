@@ -19,7 +19,8 @@ elif [[ "$OSTYPE" == "freebsd"* ]]; then
     echo $OSTYPE
     pyinstaller main.py --onefile --path env/lib/site-packages --name=uaf_freebsd
 else
-    pyinstaller main.py --onefile --path env/lib/site-packages --name=uaf_unknown        
+    echo $OSTYPE
+    pyinstaller main.py --onefile --path env/lib/site-packages --name=uaf_linux       
 fi
 
 
