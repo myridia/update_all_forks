@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   build_macos_intel:
-    if: github.repository_owner == 'myridiax'
+    if: github.repository_owner == 'myridia'
     runs-on: macos-13
     steps:
       - name: get_repository
@@ -39,7 +39,7 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: 'dist/update_all_forks_mac'
+          file: 'dist/uaf_mac'
           tag: ${{ github.ref }}
           overwrite: true
           file_glob: true   
