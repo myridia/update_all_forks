@@ -13,21 +13,14 @@ permissions:
   pull-requests: write 
   issues: read
   packages: none
-
 jobs:
-  # Single deploy job since we're just deploying
   build:
     if: github.repository_owner == 'myridia'
     runs-on: ubuntu-22.04  
-      steps:
-        - name: Check out the repo
-          uses: actions/checkout@v2
-        - name: Run the build process with Docker
-          uses: addnab/docker-run-action@v3
-          with:
-              image: aschmelyun/cleaver:latest
-              options: -v ${{ github.workspace }}:/var/www
-              run: |
-                  composer install
-                  npm install
-                  npm run production
+    steps:
+      - name: install dependencies
+        run: |
+         sudo apt-get install gcc-arm-linux-gnueabihf gcc-mingw-w64 git wget libgtk-4-dev make -y
+         
+      - name: Checkout repository
+        uses: actions/checkout@v4
