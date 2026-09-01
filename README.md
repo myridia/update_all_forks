@@ -1,3 +1,5 @@
+<img src="update_all_forks.svg" alt="update_all_forks" width="120">
+
 # update_all_forks
 Update all my Github Forks via a Python Script
 
